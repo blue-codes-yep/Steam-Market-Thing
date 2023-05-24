@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import './App.css'
 
 interface Item {
   amount_of_items: string;
@@ -41,10 +42,10 @@ const ItemList: React.FC = () => {
     return <div>Error: {error.message}</div>;
   }
   return (
-    <div style={{ overflowY: 'scroll', maxHeight: '500px' }}>
+    <div className="item-list">
         {items.map((item, index) => (
-            <div key={index} style={{ display: 'flex', alignItems: 'center', marginBottom: '10px' }}>
-                <img src={item.image_url} alt={item.item} style={{ marginRight: '10px' }} />
+            <div key={index} className="item">
+                <img src={item.image_url} alt={item.item} className="item-image" />
                 <div>
                     <h2>{item.item}</h2>
                     <p>Amount of items: {item.amount_of_items}</p>
@@ -55,7 +56,7 @@ const ItemList: React.FC = () => {
             </div>
         ))}
     </div>
-  );
+);
 };
 
 export default ItemList;
